@@ -30,7 +30,7 @@ class Auth
       $data = array(
         'classe' => $classe ,
         'metodo' => $metodo ,
-        'apelido' => $classe .  '/' . $metodo,
+        'identificacao' => $classe .  '/' . $metodo,
         'privado' => 1
       );
       $this->CI->db->insert('metodos', $data);
@@ -42,7 +42,7 @@ class Auth
        * O método sendo público (0), então não verifica o login e libera o acesso
        * Mas se for privado (1) então é verificado o login e a permissão do usuário
        */
-      if($result[0]->privado==0){
+      if($resultMetodos[0]->privado==0){
         return false;
       }
       else{
